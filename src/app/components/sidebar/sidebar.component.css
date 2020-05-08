@@ -1,0 +1,36 @@
+.sidebar{
+        height: 100%;
+        overflow-y: scroll;
+        background-color: #00bcd429;
+}
+.sidebarContent{
+    flex: 1;
+}
+.sidebarContent ul{
+    padding: 2rem;
+}
+.notesList{
+    padding: 1rem;
+}
+.noteText{
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    width:20rem;
+    display:inline-block;
+}
+
+ul{
+    list-style: none;
+}
+.noteDetails{
+    font-size: 1.6rem;
+    padding-top: 1rem;
+}
+li{
+    border-bottom: 1px solid #9e9e9e;
+    cursor: pointer;
+}
+li:hover{
+    background-color: #5f9ea0;
+}

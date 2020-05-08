@@ -1,0 +1,44 @@
+.header{
+    position: absolute;
+    width: 100%;
+    padding: 1rem;
+    background-color: cadetblue;
+}
+ul {
+    list-style: none;
+}
+
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+li{
+    
+    padding: 1rem;
+}
+li input{
+    border-radius: 2rem;
+    border: none;
+    padding: 1rem;
+    outline: none;
+}
+.actions{
+    flex: 3 3 20rem;
+    display: flex;
+}
+.actions li{
+    flex: 1 1 20rem;
+}
+.search{
+    flex: 3 3 20rem;
+    text-align: center;
+}
+
+@media screen and (max-width:932px){
+    ul{
+        text-align: center;
+    }
+}
