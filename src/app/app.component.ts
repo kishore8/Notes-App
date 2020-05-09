@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HelperService } from './services/helper.service';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +9,21 @@ import { HelperService } from './services/helper.service';
 export class AppComponent implements OnInit {
   
   isSbOpen: Boolean = false;
-  constructor(private hService:HelperService){
+  constructor(private store: Store<any>){
 
   }
 
   ngOnInit(){
-    this.hService.currentStatus$.subscribe((val) =>{
-      this.isSbOpen = val;
-  });
+
+    this.store.dispatch({
+      type:'LOAD_NOTES'
+    });
+    
+    
+    this.store.select('notes').subscribe((data)=>{
+      if(data){
+        this.isSbOpen = data.isSideBarOpen;
+      }
+    })
   }
 }

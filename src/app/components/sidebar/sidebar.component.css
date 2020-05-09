@@ -31,6 +31,13 @@ li{
     border-bottom: 1px solid #9e9e9e;
     cursor: pointer;
 }
-li:hover{
+li h4{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 20rem;
+    display: inline-block;
+}
+li:hover,li:active,li:focus,li.active {
     background-color: #5f9ea0;
 }

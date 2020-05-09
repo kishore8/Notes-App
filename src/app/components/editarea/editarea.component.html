@@ -1,5 +1,5 @@
 <section class="editarea">
-    <textarea>
-      
+    <textarea (keyup)="editNoteText($event)" [(ngModel)]= 'noteText'>
+
     </textarea>
 </section>

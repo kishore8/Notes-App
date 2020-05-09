@@ -1,10 +1,10 @@
 <section class="sidebar">
     <div class="sidebarContent">
         <ul>
-          <li (click)="noteClicked($event,note)" class="notesList" *ngFor="let note of notes">
-              <h4>{{readText(note.text)}}</h4>
+          <li [class.active]="note.id === selectedNote" (click)="noteClicked($event,note)" class="notesList" *ngFor="let note of notes">
+              <h4>{{readTitle(note.text)}}</h4>
               <div class="noteDetails">
-                <span class="noteText">{{note.lastEdited}}  -  {{note.text}}</span>&nbsp;
+                <span class="noteText">{{readDate(note.lastEdited)}}  -  {{readTitle(note.text)}}</span>&nbsp;
               </div>
           </li>
         </ul>

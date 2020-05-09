@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { EditareaComponent } from './components/editarea/editarea.component';
-import {HelperService} from './services/helper.service';
+
+import { StoreModule }from '@ngrx/store';
+import { reducer } from './redux/reducers/noteMaker.reducer';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,11 @@ import {HelperService} from './services/helper.service';
     EditareaComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    StoreModule.forRoot({notes:reducer})
   ],
-  providers: [HelperService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
