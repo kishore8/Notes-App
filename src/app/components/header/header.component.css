@@ -33,9 +33,13 @@ li input{
     flex: 1 1 20rem;
 }
 
+
 @media only screen and (max-width: 800px){
     .header{
         padding: 0rem;
+    }
+    .title{
+        font-size:1.5rem;
     }
 }
 

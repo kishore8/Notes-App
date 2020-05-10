@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -9,7 +9,7 @@ import { Store } from '@ngrx/store';
 export class HeaderComponent implements OnInit {
   selNote:Object = {};
   hasSelection:Boolean = false;
-  constructor(private store: Store<any>,private window:Window) { }
+  constructor(private store: Store<any>,@Inject('Window') private window:Window) { }
   ngOnInit() {
     this.store.select('notes').subscribe((data)=>{
       if(data && data.selectedNote){
@@ -48,7 +48,7 @@ export class HeaderComponent implements OnInit {
        this.store.dispatch({type:'SELECTED_NOTE',note}); 
        if(this.window.innerWidth < 600){
         this.store.dispatch({type:'SB_TOGGLE',payload: 'close'});
-      } 
+       } 
        
       break;
       case 'delete':

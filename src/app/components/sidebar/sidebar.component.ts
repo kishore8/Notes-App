@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -7,7 +7,7 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
-  constructor(private store:Store<any>,private window: Window) { }
+  constructor(private store:Store<any>,@Inject('Window') private window: Window) { }
   notes = [];
   selectedNote = {};
   ngOnInit() {
@@ -30,7 +30,7 @@ export class SidebarComponent implements OnInit {
 
   readTitle(text){
     if(text){
-      return text.split(' ').slice(0,2).join(' ');
+      return text.split(' ').slice(0,8).join(' ');
     }
     return 'No Title';
   }
