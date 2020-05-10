@@ -16,3 +16,23 @@
 .editableArea{
     width: 100%;
 }
+
+@media only screen and (max-width: 600px) {
+    .ui-sidebar{
+        position: absolute;
+        height: 80vh;
+        width: 100vw;
+        z-index: 99;
+        margin-top: 6rem;
+        top: 20rem;
+        border: none;
+    }
+
+    .sidebar{
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    
+  }
+
+ 

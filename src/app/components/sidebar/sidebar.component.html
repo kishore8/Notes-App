@@ -1,5 +1,8 @@
 <section class="sidebar">
     <div class="sidebarContent">
+      <div class="search">
+        <input type="text" (keyup)="searchNotes($event)" placeholder="search with min 2 char"/>
+      </div>
         <ul>
           <li [class.active]="note.id === selectedNote" (click)="noteClicked($event,note)" class="notesList" *ngFor="let note of notes">
               <h4>{{readTitle(note.text)}}</h4>

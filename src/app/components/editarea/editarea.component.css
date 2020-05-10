@@ -1,5 +1,5 @@
 .editarea{
-    background-color: #00bcd429;
+    background: linear-gradient(#4da2a7, #b5e6d6);
     width: 100%;
     height: 100%;
 }
@@ -10,3 +10,27 @@ textarea{
     width: 100%;
     min-height: 80%;
 }
+
+.intro{
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.intro h3{
+    padding: 3rem;
+}
+
+@media only screen and (max-width: 800px){
+    textarea{
+        margin-top: 12%;
+    }
+}
+
+/* @media only screen and (max-width: 350px){
+    textarea{
+        margin-top: 20%;
+    }
+} */

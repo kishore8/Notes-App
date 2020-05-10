@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { debug } from 'util';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -8,10 +7,24 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private store: Store<any>) { }
+  selNote:Object = {};
+  hasSelection:Boolean = false;
+  constructor(private store: Store<any>,private window:Window) { }
   ngOnInit() {
+    this.store.select('notes').subscribe((data)=>{
+      if(data && data.selectedNote){
+        data.notes.map((note) =>{
+          if(note.id === data.selectedNote.id){
+            this.selNote = data.selectedNote;
+            this.hasSelection = true;
+          }
+        }) 
+      }
+    })
   }
+
+
+  
 
   triggerNoteList(e){
     e.preventDefault();
@@ -23,7 +36,7 @@ export class HeaderComponent implements OnInit {
     switch (action) {
       case 'add':
         let val ={
-          "lastEdited": new Date(),
+          "lastEdited": new Date().toISOString(),
           "text": "",
           "id": Math.random()
         };
@@ -31,9 +44,22 @@ export class HeaderComponent implements OnInit {
             type:'ADD_NOTE',
             payload: val
         });
-        break;
-      case 'edit':
-        
+       const note = val;
+       this.store.dispatch({type:'SELECTED_NOTE',note}); 
+       if(this.window.innerWidth < 600){
+        this.store.dispatch({type:'SB_TOGGLE',payload: 'close'});
+      } 
+       
+      break;
+      case 'delete':
+        if(!this.hasSelection){return alert('please select a note to delete');}
+          let delVal = {
+            id: this.selNote['id']
+          }
+          this.store.dispatch({
+              type:'DELETE_NOTE',
+              payload: delVal
+          });
           break;
       default:
         break;

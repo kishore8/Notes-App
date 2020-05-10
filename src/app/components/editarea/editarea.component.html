@@ -1,5 +1,12 @@
 <section class="editarea">
-    <textarea (keyup)="editNoteText($event)" [(ngModel)]= 'noteText'>
+
+    <textarea placeholder="Enter Your Note Here" *ngIf="hasSelection" (keyup)="editNoteText($event)" [(ngModel)]= 'noteText'>
 
     </textarea>
+    <div *ngIf="!hasSelection" class="intro">
+        <h3>
+            Take Notes On the Go
+        </h3>
+        <h5>Add - Edit - Delete Your Notes</h5>
+    </div>
 </section>

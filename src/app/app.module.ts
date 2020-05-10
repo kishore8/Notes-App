@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+// import {} from '@angular/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -20,9 +21,10 @@ import { reducer } from './redux/reducers/noteMaker.reducer';
   imports: [
     BrowserModule,
     FormsModule,
-    StoreModule.forRoot({notes:reducer})
+    BrowserAnimationsModule,
+    StoreModule.forRoot({notes:reducer}) //using ngrx for redux architecture
   ],
-  providers: [],
+  providers: [{ provide: Window, useValue: window }],//injected window object
   bootstrap: [AppComponent]
 })
 export class AppModule { }
