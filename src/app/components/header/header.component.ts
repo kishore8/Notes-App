@@ -9,7 +9,8 @@ import { Store } from '@ngrx/store';
 export class HeaderComponent implements OnInit {
   selNote:Object = {};
   hasSelection:Boolean = false;
-  constructor(private store: Store<any>,@Inject('Window') private window:Window) { }
+  
+  constructor(private store: Store<any>) { }
   ngOnInit() {
     this.store.select('notes').subscribe((data)=>{
       if(data && data.selectedNote){
@@ -46,7 +47,7 @@ export class HeaderComponent implements OnInit {
         });
        const note = val;
        this.store.dispatch({type:'SELECTED_NOTE',note}); 
-       if(this.window.innerWidth < 600){
+       if(window.innerWidth < 600){
         this.store.dispatch({type:'SB_TOGGLE',payload: 'close'});
        } 
        

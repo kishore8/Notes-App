@@ -7,7 +7,7 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
-  constructor(private store:Store<any>,@Inject('Window') private window: Window) { }
+  constructor(private store:Store<any>) { }
   notes = [];
   selectedNote = {};
   ngOnInit() {
@@ -47,7 +47,7 @@ export class SidebarComponent implements OnInit {
   noteClicked(e,note){
       this.selectedNote = note.id;
       this.store.dispatch({type:'SELECTED_NOTE',note});
-      if(this.window.innerWidth < 600){
+      if(window.innerWidth < 600){
         this.store.dispatch({type:'SB_TOGGLE',payload: 'close'});
       }
       

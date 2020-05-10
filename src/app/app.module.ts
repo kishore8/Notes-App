@@ -24,7 +24,7 @@ import { reducer } from './redux/reducers/noteMaker.reducer';
     BrowserAnimationsModule,
     StoreModule.forRoot({notes:reducer}) //using ngrx for redux architecture
   ],
-  providers: [{ provide: Window, useValue: window }],//injected window object
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
