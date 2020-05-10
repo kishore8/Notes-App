@@ -1,7 +1,7 @@
 <section class="sidebar">
     <div class="sidebarContent">
       <div  class="search">
-        <input *ngIf="notes.length > 0" type="text" (keyup)="searchNotes($event)" placeholder="search with min 2 char"/>
+        <input type="text" (keyup)="searchNotes($event)" placeholder="search with min 2 char"/>
         <span class="defaultText" *ngIf="notes.length === 0">No Notes In the List</span>
       </div>
       
